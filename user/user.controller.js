@@ -68,9 +68,11 @@ exports.login = function(req,res){
         if(result){
             authService.createToken(payload,function(error,token){
                 res.set("authtoken",token)
+                
                 console.log("authtoken",token)
                 res.send({
-                        message:"Login Successful"
+                        message:"Login Successful",
+                        authtoken:token
                      })
                 // res.cookie('authtoken',token,{
                 //     expires:new Date(Date.now()+25892000000),
